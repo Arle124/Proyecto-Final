@@ -5,44 +5,58 @@ if (!isset($_SESSION["admin"])) {
     exit();
 }
 ?>
-<?php
-require_once("conexion/conexion.php");
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $_POST["nombre"];
-    $email = $_POST["email"];
-
-    $sql = "INSERT INTO usuarios (nombre, email) VALUES ('$nombre', '$email')";
-    if ($conexion->query($sql) === TRUE) {
-        $mensaje = "✅ Usuario registrado correctamente.";
-    } else {
-        $mensaje = "❌ Error: " . $conexion->error;
-    }
-}
-?>
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Registro de usuarios</title>
+    <link rel="stylesheet" href="css/styles.css"?v=2>  
+    <title>Car Manager</title>
 </head>
 <body>
 
-    <h2>Registro de Usuarios</h2>
+    <h1>Administración</h1>
 
-    <form method="POST" action="">
-        <input type="text" name="nombre" placeholder="Nombre completo" required>
-        <input type="email" name="email" placeholder="Correo electrónico" required>
-        <button type="submit">Registrar</button>
-    </form>
+    <!-- Menú -->
 
-    <div id = "logout-btn">
-        <a href="public/logout.php">Cerrar sesión</a>
+    <div class="main_menu">
+        <!-- Registrar trabajadores -->
+
+        <button onclick="location.href='db/trabajadores.php'">Registrar Trabajador</button>
+
+        <!-- Registrar vehículos -->
+
+        <button onclick="location.href='db/vehiculos.php'">Registrar Vehículo</button>
+        
+        <!-- Registrar Viajes -->
+
+        <button onclick="location.href='db/registro_viajes.php'">Registrar Viaje</button>
+
+        <!-- Listar trabajadores -->
+
+        <button id = "listarTrabajadores" type = "button" onclick="listarTrabajadores()">Listar Trabajadores</button>
+
+        <!-- Listar vehículos -->
+
+        <button onclick="location.href='db/listar_vehiculos.php'">Listar Vehículos</button>
+
+        <!-- Consultar registro de viajes -->
+
+        <button onclick="location.href='db/registro_viajes.php'">Consultar Registro de Viajes</button>
+
+        <!-- Consultar nómina -->
+
+        <button onclick="location.href='db/nomina.php'">Consultar Nómina</button>
+
+        <!-- resultado listar trabajadores -->
+        <div id = "resultado-listar-trabajadores"></div>
+
     </div>
 
-    <?php if (isset($mensaje)) echo "<p class='msg'>$mensaje</p>";?>
+    <div id = "logout-btn">
+        <button onclick="location.href='public/logout.php'">Cerrar sesión</button>
+    </div>
 
+    <script src="js/scripts.js"></script>
 </body>
 </html>

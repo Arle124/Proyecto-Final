@@ -33,20 +33,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
   <meta charset="UTF-8">
   <title>Login | Proyecto Final</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/login.css">
 </head>
 
 <body>
-
-  <h2>Iniciar Sesión</h2>
   <form method="POST">
-    <label>Usuario:</label><br>
-    <input type="text" name="usuario" required><br><br>
-    <label>Contraseña:</label><br>
-    <input type="password" name="contrasenia" required><br><br>
+    <h2>Iniciar Sesión</h2>
+
+    <label for="usuario">Usuario</label>
+    <input type="text" name="usuario" id="usuario" required>
+
+    <label for="contrasenia">Contraseña</label>
+    <input type="password" name="contrasenia" id="contrasenia" required>
+
     <button type="submit">Entrar</button>
+    
   </form>
-  
 </body>
 
 </html>

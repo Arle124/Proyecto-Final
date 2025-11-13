@@ -1,46 +1,112 @@
+/* === ESTILOS GENERALES === */
 body {
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   background: #f2f2f2;
-  padding-top: 50px;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === TÍTULO === */
+h2 {
   text-align: center;
+  margin-bottom: 30px;
+  color: #333;
 }
 
-form { 
-    background: white; display: inline-block; padding: 20px 40px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.2);
+/* === MENSAJES DE ALERTA === */
+.msg {
+  margin-top: 20px;
+  color: green;
+  font-weight: bold;
 }
 
-input { 
-    display: block; margin: 10px auto; padding: 10px; width: 250px;
-}
-
-button { 
-    padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; 
-}
-
-button:hover { 
-    background: #0056b3;
-}
-
-.msg { 
-    margin-top: 15px; color: green; font-weight: bold;
-}
-
+/* === BOTÓN DE LOGOUT === */
 #logout-btn {
   position: absolute;
   top: 20px;
   right: 20px;
-  padding: 10px 15px;
-  background-color: #dc3545;
+}
+
+#logout-btn button {
+  background-color: #dc3545; /* rojo clásico */
+  color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: bold;
   cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-#logout-btn a {
-  color: white;              /* color del texto */
-  text-decoration: none;     /* quita el subrayado */
+#logout-btn button:hover {
+  background-color: #c82333; /* tono más oscuro al pasar el mouse */
+  transform: scale(1.05);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
 }
 
-#logout-btn a:hover {
-  text-decoration: underline; /* opcional, si quieres que se subraye al pasar el mouse */
+#logout-btn button:active {
+  transform: scale(0.97);
+}
+
+
+/* === MENÚ PRINCIPAL === */
+.main_menu{
+  display: flex;
+  flex-direction: column;   /* botones uno debajo del otro */
+  align-items: center;      /* centra horizontalmente */
+  justify-content: center;  /* centra verticalmente si hay altura definida */
+  background-color: #fff;
+  padding: 40px 60px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  gap: 15px;                /* espacio entre botones */
+  max-width: 100%;
+}
+
+/* === BOTONES DEL MENÚ === */
+.main_menu button{
+  width: 400px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.main_menu button:hover {
+  background-color: #0056b3;
+  transform: scale(1.03);
+}
+
+#resultado-listar-trabajadores {
+  width: 100%;
+  
+  margin-top: 20px;
+}
+
+/* Estilo base para que la tabla se vea bien */
+#resultado-listar-trabajadores table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+#resultado-listar-trabajadores th,
+#resultado-listar-trabajadores td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+#resultado-listar-trabajadores th {
+  background-color: #f4f4f4;
 }
